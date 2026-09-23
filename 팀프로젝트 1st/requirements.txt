@@ -1,0 +1,8 @@
+streamlit
+pandas
+pymysql
+cryptography
+requests
+python-dotenv
+google-genai
+plotly
