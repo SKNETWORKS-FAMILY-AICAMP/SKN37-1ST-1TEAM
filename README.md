@@ -11,14 +11,14 @@
 | **Database** | ![MySQL](https://img.shields.io/badge/MySQL%208.x-4479A1?style=for-the-badge&logo=mysql&logoColor=white) |
 | **Development** | ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white) |
 | **Collaboration** | ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) |
-
+<br>
  
 
 ## 🗓️ 1. 프로젝트 개요
 
 - **프로젝트 명:** 차량 구매 추천 서비스
 - **프로젝트 진행기간:** 2026.09.23 ~ 2026.09.28
-
+<br>
 
 
 ## 📖 2. 프로젝트 소개 및 필요성
@@ -35,7 +35,7 @@
 - 사용자의 **거주 지역, 출퇴근 거리, 구매 예산, 선호 차량 조건**을 바탕으로 차량을 선별하고, **가격·연료비·지역 인프라를 종합적으로 점수화**하여 적합한 차량을 추천하고자 했습니다.
 
 - 또한 **차량 통계, 기업 FAQ, 월납입금 계산, AI 챗봇** 등의 기능을 함께 제공하여 차량 탐색부터 비교 및 구매 판단까지 한 서비스에서 확인할 수 있도록 구현했습니다.
-
+<br>
 
 ## 🚗 3. 주요 기능
 
@@ -83,7 +83,7 @@
 - 월 납입금, 총 납입액 및 총 이자 계산
 - 회차별 원금·이자 구성 및 잔여 원금 추이 시각화
 - 회차별 상환 스케줄 제공
-
+<br>
 
 
 
@@ -100,7 +100,7 @@ MySQL 데이터베이스에 저장했습니다.
 | `ev_chargers` | 지역별 전기자동차 충전소 정보 | Open API | [한국환경공단 - 전기자동차 충전소 정보](https://www.data.go.kr/data/15076352/openapi.do) |
 | `sido_oil_price` | 시도별 주유소 평균가격 | Open API | [한국석유공사 오피넷 - 시도별 주유소 평균가격](https://www.opinet.co.kr/user/custapi/custApiInfo.do) |
 | `*_faq` | 제조사별 자동차 FAQ | 크롤링 | 각 자동차 제조사 공식 홈페이지 |
-
+<br>
 
 
 ## 🗄️ 5. 주요 데이터베이스 구조 (DB)
@@ -115,7 +115,7 @@ MySQL 데이터베이스에 저장했습니다.
 
 <br>
 
-## 👥 팀원 소개 및 역할
+## 👥 6. 팀원 소개 및 역할
 
 | 이름 | 역할 및 담당 업무 |
 |------|-------------------|
