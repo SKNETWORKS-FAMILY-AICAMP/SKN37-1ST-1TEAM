@@ -116,6 +116,9 @@ MySQL 데이터베이스에 저장했습니다.
 <br>
 
 ## 💻 6. Streamlit 화면 (UI/UX)
+### 화면 영상 
+> https://youtu.be/PoBcGyvH0-s
+
 ### 6.1  사용자 조건 입력
 > <img width="2880" height="1434" alt="7" src="https://github.com/user-attachments/assets/eadb39a4-22a7-46de-888f-f6ab44e19ce5" />
 
