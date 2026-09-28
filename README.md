@@ -1,4 +1,4 @@
-# 🚗 CHARMINI : 차량 구매 추천 서비스
+# 🚗 CHAMINI : 차량 구매 추천 서비스
 <img width="1024" height="559" alt="charmini" src="https://github.com/user-attachments/assets/9ca330ce-7770-439c-8255-97255f71840d" />
 
 
