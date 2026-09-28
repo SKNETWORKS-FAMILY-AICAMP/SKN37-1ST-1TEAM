@@ -1,0 +1,1 @@
+"""Modularized CHAMINAI Streamlit application."""
