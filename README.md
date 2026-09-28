@@ -117,11 +117,10 @@ MySQL 데이터베이스에 저장했습니다.
 
 ## 💻 6. Streamlit 화면 (UI/UX)
 ### 6.1 사용자 조건 입력
-><img width="2880" height="1434" alt="7" src="https://github.com/user-attachments/assets/eadb39a4-22a7-46de-888f-f6ab44e19ce5" />
+> <img width="2880" height="1434" alt="7" src="https://github.com/user-attachments/assets/eadb39a4-22a7-46de-888f-f6ab44e19ce5" />
 
 ### 6.2 맞춤형 차량 추천 결과
-><img width="2880" height="1440" alt="5" src="https://github.com/user-attachments/assets/a6f26d3e-6a81-4c3a-985a-be4b72d624d8" />
-<img width="2352" height="918" alt="3" src="https://github.com/user-attachments/assets/dc9c8138-a42d-437d-a008-be13d4469913" />
+> <img width="2880" height="1440" alt="5" src="https://github.com/user-attachments/assets/a6f26d3e-6a81-4c3a-985a-be4b72d624d8" /> <img width="2352" height="918" alt="3" src="https://github.com/user-attachments/assets/dc9c8138-a42d-437d-a008-be13d4469913" />
 
 
 ### 6.3 추천 차량 비교 
@@ -130,10 +129,7 @@ MySQL 데이터베이스에 저장했습니다.
 ### 6.4 자동차 통계 조회
 ><img width="2286" height="1382" alt="6" src="https://github.com/user-attachments/assets/2905aeab-7e2a-4db3-8537-3ca172d3b2f9" />
 
-### 6.5 추천 점수 구성 비교
->
-
-### 6.7 차량 검색 및 월 납입금 계산
+### 6.5 차량 검색 및 월 납입금 계산
 > <img width="2268" height="1230" alt="2" src="https://github.com/user-attachments/assets/54553a62-63e3-4035-aa0d-b904b8fc83fb" /> <img width="2269" height="895" alt="1" src="https://github.com/user-attachments/assets/1d69461c-08f8-4cf6-9070-a44bd3e64b7c" />
 
 
