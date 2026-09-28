@@ -336,3 +336,17 @@ BRAND_INFO = {
         cta="르노 FAQ 보러가기 →"),
 }
 BRAND_BY_QUERY = {info["query"]: source for source, info in BRAND_INFO.items()}
+
+# config.py 하단에 추가
+DINO_ICON_HTML = '<i class="bi bi-controller" style="font-size:1.3rem;"></i>'
+DINO_MENU = "공룡 게임 🦖"
+
+# MENU_BY_QUERY에 항목 추가
+MENU_BY_QUERY = {
+    "home": HOME_MENU,
+    "chat": CHATBOT_MENU,
+    "recommend": RECOMMEND_MENU,
+    "faq": FAQ_MENU,
+    "calc": CALC_MENU,
+    "dino": DINO_MENU,
+}
