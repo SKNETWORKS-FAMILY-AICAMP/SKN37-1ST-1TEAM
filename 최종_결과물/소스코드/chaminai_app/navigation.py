@@ -3,21 +3,11 @@ import sys
 from pathlib import Path
 
 import streamlit as st
+import base64
 from PIL import Image
 
-from .config import (
-    AI_ICON_HTML,
-    CALC_ICON_HTML,
-    CALC_MENU,
-    CHATBOT_MENU,
-    FAQ_ICON_HTML,
-    FAQ_MENU,
-    HOME_ICON_HTML,
-    HOME_MENU,
-    MENU_BY_QUERY,
-    RECO_ICON_HTML,
-    RECOMMEND_MENU,
-)
+from .config import *
+from .dino_game import render_dino_game
 from .chatbot import render_chatbot_menu
 from .calculator import render_calc_menu
 from .faq import BRAND_BY_QUERY, BRAND_INFO, _faq_display_name, render_faq_menu
@@ -60,26 +50,64 @@ def run_app():
     """Run the original top-level Streamlit routing/navigation code."""
     st.session_state.setdefault("reco_nav_gen", 0)
     st.session_state.setdefault("faq_nav_gen", 0)
+    st.session_state.setdefault("logo_click_count", 0)
 
-    # --- [로고 추가 영역] ---
-    logo_path = Path(__file__).resolve().parent.parent / "static" / "CHAMINAI.png"
+    # 1. 로고 이미지 클릭 이벤트 감지 (URL 쿼리 파라미터 확인 및 수량 동기화)
+    if "logo_click" in st.query_params:
+        try:
+            # URL로 전달받은 클릭 횟수로 세션 스테이트 업데이트
+            clicks = int(st.query_params.get("logo_click", 1))
+            st.session_state["logo_click_count"] = clicks
+        except ValueError:
+            st.session_state["logo_click_count"] += 1
+            clicks = st.session_state["logo_click_count"]
+
+        del st.query_params["logo_click"]  # 감지 후 쿼리 파라미터 정리
+
+        if clicks < 3:
+            st.toast(f"🔑 이스터에그 힌트: {clicks}/3 회 클릭됨!")
+        elif clicks >= 3:
+            st.toast("🎉 축하합니다! 공룡 게임이 해금되었습니다!")
+            st.session_state["menu"] = DINO_MENU
+            st.rerun()
+
+    # 2. 로고 이미지를 클릭 가능한 HTML <a> 태그로 출력 (다음 클릭 수 동적 생성)
+    current_clicks = st.session_state.get("logo_click_count", 0)
+    next_click = current_clicks + 1
+
+    logo_path = (
+        Path(__file__).resolve().parent.parent / "static" / "CHAMINAI.png"
+    )
     if logo_path.exists():
-        # width 값을 조절하여 크기를 줄일 수 있습니다 (기본 추천: 120~180)
-        st.sidebar.image(str(logo_path), width=150)
-    # ------------------------
+        with open(logo_path, "rb") as f:
+            encoded_logo = base64.b64encode(f.read()).decode()
 
-    _target = st.query_params.get("menu")
+        # href에 다음 클릭 횟수를 담아 전달 (?logo_click=1, ?logo_click=2, ...)
+        st.sidebar.markdown(
+            f"""
+            <a href="?logo_click={next_click}" target="_self" style="text-decoration: none;">
+                <img src="data:image/png;base64,{encoded_logo}" width="150" style="cursor: pointer; display: block; margin-bottom: 15px; border-radius: 8px;">
+            </a>
+            """,
+            unsafe_allow_html=True,
+        )
 
+    # 3. 메뉴 및 페이지 라우팅
     _target = st.query_params.get("menu")
     if _target in MENU_BY_QUERY:
         st.session_state["menu"] = MENU_BY_QUERY[_target]
         if _target == "faq":
-            st.session_state["faq_brand"] = BRAND_BY_QUERY.get(st.query_params.get("brand"))
+            st.session_state["faq_brand"] = BRAND_BY_QUERY.get(
+                st.query_params.get("brand")
+            )
             st.session_state["faq_nav_gen"] += 1
         if _target == "recommend":
-            st.session_state["reco_view"] = RECO_VIEW_BY_QUERY.get(st.query_params.get("view"))
+            st.session_state["reco_view"] = RECO_VIEW_BY_QUERY.get(
+                st.query_params.get("view")
+            )
             st.session_state["reco_nav_gen"] += 1
         st.query_params.clear()
+
     if "menu" not in st.session_state:
         st.session_state["menu"] = HOME_MENU
 
@@ -88,38 +116,17 @@ def run_app():
 
     _nav_button(HOME_MENU, HOME_MENU, "nav_home", icon_html=HOME_ICON_HTML)
     _nav_button(CHATBOT_MENU, CHATBOT_MENU, "nav_chat", icon_html=AI_ICON_HTML)
-    _nav_button(RECOMMEND_MENU, RECOMMEND_MENU, "nav_reco", icon_html=RECO_ICON_HTML)
-
-    if st.session_state.get("menu") == RECOMMEND_MENU:
-        RECO_SUB_OPTIONS = ["자동차 추천 받기", "자동차 통계 확인"]
-        RECO_SUB_TO_VIEW = {"자동차 추천 받기": "form", "자동차 통계 확인": "stats"}
-        RECO_VIEW_TO_SUB = {v: k for k, v in RECO_SUB_TO_VIEW.items()}
-        current_reco_sub = RECO_VIEW_TO_SUB.get(st.session_state.get("reco_view"))
-        picked_reco_sub = st.sidebar.radio(
-            "　", RECO_SUB_OPTIONS,
-            index=(RECO_SUB_OPTIONS.index(current_reco_sub) if current_reco_sub else None),
-            key=f"sidebar_reco_sub_{st.session_state['reco_nav_gen']}", label_visibility="collapsed",
-        )
-        if picked_reco_sub is not None:
-            st.session_state["reco_view"] = RECO_SUB_TO_VIEW[picked_reco_sub]
-
+    _nav_button(
+        RECOMMEND_MENU, RECOMMEND_MENU, "nav_reco", icon_html=RECO_ICON_HTML
+    )
     _nav_button(FAQ_MENU, FAQ_MENU, "nav_faq", icon_html=FAQ_ICON_HTML)
-
-    if st.session_state.get("menu") == FAQ_MENU:
-        FAQ_SUB_TO_BRAND = {f"{_faq_display_name(brand)} FAQ": brand for brand in BRAND_INFO}
-        FAQ_SUB_OPTIONS = list(FAQ_SUB_TO_BRAND.keys())
-        FAQ_BRAND_TO_SUB = {v: k for k, v in FAQ_SUB_TO_BRAND.items()}
-        current_faq_sub = FAQ_BRAND_TO_SUB.get(st.session_state.get("faq_brand"))
-        picked_faq_sub = st.sidebar.radio(
-            "　", FAQ_SUB_OPTIONS,
-            index=(FAQ_SUB_OPTIONS.index(current_faq_sub) if current_faq_sub else None),
-            key=f"sidebar_faq_sub_{st.session_state['faq_nav_gen']}", label_visibility="collapsed",
-        )
-        if picked_faq_sub is not None:
-            st.session_state["faq_brand"] = FAQ_SUB_TO_BRAND[picked_faq_sub]
-
     _nav_button(CALC_MENU, CALC_MENU, "nav_calc", icon_html=CALC_ICON_HTML)
 
+    # 3번 이상 클릭 시 공룡 게임 메뉴 추가
+    if st.session_state.get("logo_click_count", 0) >= 3:
+        _nav_button(DINO_MENU, DINO_MENU, "nav_dino", icon_html=DINO_ICON_HTML)
+
+    # 페이지 라우터
     menu = st.session_state["menu"]
     if menu == HOME_MENU:
         render_home()
@@ -132,9 +139,9 @@ def run_app():
     elif menu == CALC_MENU:
         st.title("")
         render_calc_menu()
+    elif menu == DINO_MENU:
+        st.title("")
+        render_dino_game()
     else:
         st.title("")
         render_faq_menu()
-
-    st.divider()
-    st.caption("자동차 추천 시스템 및 기업FAQ 조회 시스템")
