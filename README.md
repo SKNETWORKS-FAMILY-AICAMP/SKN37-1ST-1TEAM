@@ -39,7 +39,7 @@
 
 ## 🚗 3. 주요 기능
 
-### 🔎 사용자 맞춤형 차량 추천
+### 🔎 3.1 사용자 맞춤형 차량 추천
 
 사용자가 입력한 조건을 기반으로 적합한 차량을 추천합니다.
 
@@ -49,7 +49,7 @@
 - 선호 차량 크기
 - 선호 연료
 
-### 📊 종합점수 산정
+### 📊 3.2 종합점수 산정
 
 추천 차량의 순위를 결정하기 위해 다음 세 가지 요소를 점수화하여
 종합점수를 산출합니다.
@@ -67,14 +67,14 @@
 종합적으로 고려한 차량 추천 결과를 제공합니다.
 
 
-### 💬 자동차 FAQ 제공 및 AI 챗봇 
+### 💬 3.3 자동차 FAQ 제공 및 AI 챗봇 
 
 자동차 제조사의 FAQ 데이터를 수집하여 차량 구매 및 이용과 관련된 정보를 제공합니다.
 
 - 제조사별 FAQ 검색 및 조회
 - FAQ 데이터를 기반으로 사용자의 질문에 답변하는 **AI 챗봇 기능 제공**
 
-### 💰 월납입금 계산
+### 💰 3.4 월납입금 계산
 
 차량 가격과 계약금, 할부 기간, 연이자율을 바탕으로
 **원리금균등상환 방식의 예상 월 납입금**을 계산합니다.
@@ -115,7 +115,29 @@ MySQL 데이터베이스에 저장했습니다.
 
 <br>
 
-## 👥 6. 팀원 소개 및 역할
+## 💻 6. Streamlit 화면 (UI/UX)
+### 6.1 사용자 조건 입력
+><img width="2880" height="1434" alt="7" src="https://github.com/user-attachments/assets/eadb39a4-22a7-46de-888f-f6ab44e19ce5" />
+
+### 6.2 맞춤형 차량 추천 결과
+><img width="2880" height="1440" alt="5" src="https://github.com/user-attachments/assets/a6f26d3e-6a81-4c3a-985a-be4b72d624d8" />
+<img width="2352" height="918" alt="3" src="https://github.com/user-attachments/assets/dc9c8138-a42d-437d-a008-be13d4469913" />
+
+
+### 6.3 추천 차량 비교 
+> <img width="2380" height="1168" alt="4" src="https://github.com/user-attachments/assets/2893ef56-36f5-4a4d-ac23-b70d8a987419" />
+
+### 6.4 자동차 통계 조회
+><img width="2286" height="1382" alt="6" src="https://github.com/user-attachments/assets/2905aeab-7e2a-4db3-8537-3ca172d3b2f9" />
+
+### 6.5 추천 점수 구성 비교
+>
+
+### 6.7 차량 검색 및 월 납입금 계산
+> <img width="2268" height="1230" alt="2" src="https://github.com/user-attachments/assets/54553a62-63e3-4035-aa0d-b904b8fc83fb" /> <img width="2269" height="895" alt="1" src="https://github.com/user-attachments/assets/1d69461c-08f8-4cf6-9070-a44bd3e64b7c" />
+
+
+## 👥 7. 팀원 소개 및 역할
 
 | 이름 | 역할 및 담당 업무 |
 |------|-------------------|
