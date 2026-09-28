@@ -1,6 +1,6 @@
 # 🚗 차량 구매 추천 서비스
 
-
+<br>
 
 ## 🛠️ 기술 스택
 
@@ -12,14 +12,14 @@
 | **Development** | ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white) |
 | **Collaboration** | ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) |
 
---- 
+ 
 
 ## 🗓️ 1. 프로젝트 개요
 
 - **프로젝트 명:** 차량 구매 추천 서비스
 - **프로젝트 진행기간:** 2026.09.23 ~ 2026.09.28
 
----
+
 
 ## 📖 2. 프로젝트 소개 및 필요성
 
@@ -84,7 +84,7 @@
 - 회차별 원금·이자 구성 및 잔여 원금 추이 시각화
 - 회차별 상환 스케줄 제공
 
----
+
 
 
 ## 📊 4. 데이터 수집 및 가공
@@ -102,7 +102,6 @@ MySQL 데이터베이스에 저장했습니다.
 | `*_faq` | 제조사별 자동차 FAQ | 크롤링 | 각 자동차 제조사 공식 홈페이지 |
 
 
----
 
 ## 🗄️ 5. 주요 데이터베이스 구조 (DB)
 
@@ -114,7 +113,7 @@ MySQL 데이터베이스에 저장했습니다.
 
 > <img width="680" height="611" alt="ERD_normal" src="https://github.com/user-attachments/assets/518f9e65-830e-484b-a7d0-d18e792f3f3d" />
 
----
+<br>
 
 ## 👥 팀원 소개 및 역할
 
