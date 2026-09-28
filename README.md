@@ -15,12 +15,22 @@
 
 ## 🛠️ 기술 스택 및 개발 환경
 
-- **Language:** Python
-- **IDE:** Visual Studio Code
-- **Frontend:** Streamlit
-- **Database:** MySQL 8.x
-- **Collaboration:** Git, GitHub
 
+### Language
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+### Frontend
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+
+### Database
+![MySQL](https://img.shields.io/badge/MySQL%208.x-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+
+### Development
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+
+### Collaboration
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ---
 
 ## 🗓️ 프로젝트 개요
@@ -125,14 +135,15 @@ MySQL 데이터베이스에 저장했습니다.
 본 프로젝트는 차량 추천 및 정보 제공을 위해 차량 정보, 지역별 데이터,
 전기차 관련 데이터, 제조사 FAQ 데이터를 MySQL DB로 구축하였습니다.
 
-| 테이블 | 주요 내용 |
-|---|---|
-| `car_info` | 브랜드, 차종, 차량 크기, 연료 타입, 가격, 연비 |
-| `sido_oil_price` | 지역별 유류 가격 |
-| `electric_vehicles` | 지역별 전기차 등록 대수 |
-| `ev_chargers` | 지역별 전기차 충전기 수 |
-| `electric_car_subsidies` | 지역별 전기차 보조금 정보 |
-| `*_faq` | 자동차 제조사별 FAQ |
+
+| 테이블명 | 수집 데이터 | 수집 방법 | 출처 |
+|---|---|---|---|
+| `car_info` | 브랜드, 차종, 차량 크기, 연료 타입, 가격, 연비 | 크롤링 | 다나와 자동차 |
+| `electric_car_subsidies` | 지역별 전기차 보조금 및 보급 현황 | 공공데이터 활용 | [공공데이터포털](https://www.data.go.kr/iim/dps/dpc/selectMyDataPrcusView.do) |
+| `electric_vehicles` | 지역별 전기차 등록 대수 | Open API | [공공데이터포털](https://www.data.go.kr/iim/api/selectAPIAcountView.do) |
+| `ev_chargers` | 지역별 전기차 충전기 수 | Open API | [공공데이터포털](https://www.data.go.kr/iim/api/selectAPIAcountView.do) |
+| `sido_oil_price` | 시도별 주유소 평균가격 | Open API | [한국석유공사 오피넷](https://www.opinet.co.kr/user/custapi/custApiInfo.do) |
+| `*_faq` | 제조사별 자동차 FAQ | 크롤링 | 각 자동차 제조사 공식 홈페이지 |
 | `view_car_recommend` | 차량 추천에 활용되는 View |
 
 ### ERD
@@ -140,4 +151,3 @@ MySQL 데이터베이스에 저장했습니다.
 > ERD 이미지
 
 
-### 출처
